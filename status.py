@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 
 import urllib2, time, pygame.mixer
-import xml.etree.ElementTree as et
+from bs4 import BeautifulSoup
 
 url = "http://www.webhostingstatus.com/"
-beepsound = "beep.wav"
 #url = "http://localhost:4000/"
+beepsound = "beep.wav"
+alertsound = "missile.wav"
 reference_page = ""
 current_page = ""
 wait_time = 10 #seconds
@@ -24,12 +25,15 @@ def main():
 
 
 def setup( ):
-    # set up pins, mixer, whatevs.
+     set up pins, mixer, whatevs.
     pygame.mixer.init()
     global sound
     sound = pygame.mixer.Sound(beepsound)
+    sound.play()
+         #replace with alert ready for use
+    sound = pygame.mixer.Sound(alertsound)
     print "starting"
- 
+
 def download_page():
     global current_page
     try:
@@ -39,32 +43,37 @@ def download_page():
     except Exception:
         print "no internet"
 
- 
+
 def same_as_reference():
     return current_page == reference_page
- 
-def page_shows_warning():
-    # XML parse some shit
-    #root = et.fromstring(html)
 
-    #for e in root.findall(".//h2"):
-    #    break
+def page_shows_warning():
+    soup = BeautifulSoup(current_page)
+    divs = soup.find_all("div", class_="contentbox")
+    for div in divs:
+        notifs = div.find_all("li")
+        print notifs
+        if notifs is None: #means there are no error items
+            return False
+        for item in notifs:
+            fixed = item.find("p", class_="fixed")
+            if fixes is not None: #means that all error items are fixed
+                return True
     print "page analysed"
-    if reference_page == "":
-        return False
-    return True
- 
+    return False
+
+
 def flash_and_stuff():
     print "something has been reported"
     sound.play()
-    # play sound
-    # flash lights
- 
+#play sound
+# flash lights
+
 def save_as_reference():
     global reference_page
     reference_page = current_page
     print "update ref"
- 
+
 def wait_a_bit():
     time.sleep(wait_time)
 

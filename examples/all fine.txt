@@ -1,0 +1,25 @@
+<body>
+    <div id="container">
+    	<div id="masthead">
+        	<div id="bookmark">
+            	<a href="javascript:window.external.addFavorite(window.top.location.href,'Web Hosting Status');">Add to favourites</a>
+            </div>
+            <h1>System Status</h1>
+            <p>Welcome to our system status page. This page is updated with any planned maintenance or current system issues. <br />
+            <strong>Please check this page before contacting customer services.</strong></p>
+        </div>
+        <div class="contentbox">
+        	<h2>Current System Status</h2>
+
+<p><strong>All systems are operating normally.</strong></p>
+
+        </div>
+        <div class="contentbox">
+        	<h2>Planned System Maintenance </h2>
+
+<p><strong>There is currently no planned maintenance.</strong></p>
+
+
+        </div>
+    </div>
+</body>
