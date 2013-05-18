@@ -25,7 +25,7 @@ def main():
 
 
 def setup( ):
-     set up pins, mixer, whatevs.
+    #set up pins, mixer, whatevs.
     pygame.mixer.init()
     global sound
     sound = pygame.mixer.Sound(beepsound)
@@ -39,7 +39,6 @@ def download_page():
     try:
         response = urllib2.urlopen(url)
         current_page = response.read()
-        print "downloading..."
     except Exception:
         print "no internet"
 
@@ -52,7 +51,6 @@ def page_shows_warning():
     divs = soup.find_all("div", class_="contentbox")
     for div in divs:
         notifs = div.find_all("li")
-        print notifs
         if notifs is None: #means there are no error items
             return False
         for item in notifs:
