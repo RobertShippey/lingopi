@@ -19,9 +19,7 @@ def main():
     while True:
         download_page()
         if not same_as_reference():
-            print "Page has been updated..."
             if page_shows_warning():
-                print "Page has errors..."
                 flash_and_stuff()
             save_as_reference()
         wait_a_bit()
@@ -33,7 +31,7 @@ def setup( ):
     global sound
     sound = pygame.mixer.Sound(beepsound)
     sound.play()
-         #replace with alert ready for use
+    #replace with alert ready for use
     sound = pygame.mixer.Sound(alertsound)
 
 def download_page():
@@ -46,7 +44,12 @@ def download_page():
 
 
 def same_as_reference():
-    return current_page == reference_page
+    if current_page == reference_page:
+        return True
+    else:
+        if not reference_page == "":
+            print "Page has been updated..."
+        return False
 
 def page_shows_warning():
     soup = BeautifulSoup(current_page)
@@ -63,6 +66,7 @@ def page_shows_warning():
 
 
 def flash_and_stuff():
+    print "Page has errors..."
     sound.play()
 
 
