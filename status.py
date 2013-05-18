@@ -14,12 +14,17 @@ sound = ""
 
 def main():
     setup()
+    print "Loaded..."
     
     while True:
         download_page()
         if not same_as_reference():
+            print "Page has been updated..."
             if page_shows_warning():
+                print "Page has errors..."
                 flash_and_stuff()
+            else:
+                print "Error look fixed"
             save_as_reference()
         wait_a_bit()
 
@@ -32,7 +37,6 @@ def setup( ):
     sound.play()
          #replace with alert ready for use
     sound = pygame.mixer.Sound(alertsound)
-    print "Loaded"
 
 def download_page():
     global current_page
@@ -40,7 +44,7 @@ def download_page():
         response = urllib2.urlopen(url)
         current_page = response.read()
     except Exception:
-        print "Couldn't connect to ", url
+        print "ERR: Couldn't connect to ", url
 
 
 def same_as_reference():
@@ -62,8 +66,7 @@ def page_shows_warning():
 
 def flash_and_stuff():
     sound.play()
-#play sound
-# flash lights
+
 
 def save_as_reference():
     global reference_page
