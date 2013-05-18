@@ -32,7 +32,7 @@ def setup( ):
     sound.play()
          #replace with alert ready for use
     sound = pygame.mixer.Sound(alertsound)
-    print "starting"
+    print "Loaded"
 
 def download_page():
     global current_page
@@ -41,7 +41,7 @@ def download_page():
         current_page = response.read()
         print "downloading..."
     except Exception:
-        print "no internet"
+        print "Couldn't connect to ", url
 
 
 def same_as_reference():
@@ -59,12 +59,10 @@ def page_shows_warning():
             fixed = item.find("p", class_="fixed")
             if fixes is not None: #means that all error items are fixed
                 return True
-    print "page analysed"
     return False
 
 
 def flash_and_stuff():
-    print "something has been reported"
     sound.play()
 #play sound
 # flash lights
@@ -72,7 +70,6 @@ def flash_and_stuff():
 def save_as_reference():
     global reference_page
     reference_page = current_page
-    print "update ref"
 
 def wait_a_bit():
     time.sleep(wait_time)
