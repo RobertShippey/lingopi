@@ -23,8 +23,6 @@ def main():
             if page_shows_warning():
                 print "Page has errors..."
                 flash_and_stuff()
-            else:
-                print "Error look fixed"
             save_as_reference()
         wait_a_bit()
 
