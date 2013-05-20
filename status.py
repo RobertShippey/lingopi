@@ -39,6 +39,7 @@ def download_page():
     try:
         response = urllib2.urlopen(url)
         current_page = response.read()
+        print current_page #debug mode, lol 
     except Exception:
         print "ERR: Couldn't connect to ", url
 
@@ -60,7 +61,7 @@ def page_shows_warning():
             return False
         for item in notifs:
             fixed = item.find("p", class_="fixed")
-            if fixes is not None: #means that all error items are fixed
+            if fixed is not None: #means that all error items are fixed
                 return True
     return False
 
