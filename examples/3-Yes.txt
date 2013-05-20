@@ -1,0 +1,39 @@
+<body>
+    <div id="container">
+    	<div id="masthead">
+        	<div id="bookmark">
+            	<a href="javascript:window.external.addFavorite(window.top.location.href,'Web Hosting Status');">Add to favourites</a>
+            </div>
+            <h1>System Status</h1>
+            <p>Welcome to our system status page. This page is updated with any planned maintenance or current system issues. <br />
+            <strong>Please check this page before contacting customer services.</strong></p>
+        </div>
+        <div class="contentbox">
+        	<h2>Current System Status</h2>
+
+<p><strong>All systems are operating normally.</strong></p>
+
+        </div>
+        <div class="contentbox">
+        	<h2>Planned System Maintenance </h2>
+
+        	<ul>
+
+            	<li>
+                	<p class="heading">kvmhost37 reboot</p>
+                    <p class="date">Mon, 20 May 2013 03:00:00 +0100</p>
+                    <p>This hybrid host will be rebooted in the early hours of the morning to apply an update to the kernel. Guests on this host will be offline for around 30-60 minutes while this is completed.</p>
+                </li>
+
+            	<li>
+                	<p class="heading">hybrid109 reboot</p>
+                    <p class="date">Mon, 20 May 2013 03:00:00 +0100</p>
+                    <p>This hybrid host will be rebooted in the early hours of the morning to apply an update to the kernel. Guests on this host will be offline for around 30-60 minutes while this is completed.</p>
+                </li>
+
+            </ul>
+
+
+        </div>
+    </div>
+</body>
