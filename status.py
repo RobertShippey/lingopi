@@ -39,7 +39,6 @@ def download_page():
     try:
         response = urllib2.urlopen(url)
         current_page = response.read()
-        print current_page #debug mode, lol 
     except Exception:
         print "ERR: Couldn't connect to ", url
 
@@ -50,6 +49,10 @@ def same_as_reference():
     else:
         if not reference_page == "":
             print "Page has been updated..."
+            t = time.time()
+            f = open("examples/" + str(t) + ".txt", 'w')
+            f.write(current_page)
+            f.close() 
         return False
 
 def page_shows_warning():
